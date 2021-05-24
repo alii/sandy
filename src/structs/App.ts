@@ -66,12 +66,10 @@ export class App extends (EventEmitter as { new (): TypedEventEmitter<WindowEven
       ...options,
     };
 
-    const targetPage = `
-    <title>${encodeURIComponent(merged.title || "")}</title>
-    <style>html{background:${encodeURIComponent(merged.backgroundColor)};}</style>`;
+    const url = merged.htmlContent ? `data:text/html,${merged.htmlContent}` : merged.url ?? "https://alistair.sh";
 
     const args: AppConfig["args"] = [
-      `--app=data:text/html,${targetPage}`,
+      `--app=${url}`,
       `--enable-features=NetworkService,NetworkServiceInProcess`,
       ...(options?.args ?? []),
     ];

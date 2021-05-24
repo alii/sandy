@@ -9,4 +9,7 @@ export interface AppConfig {
   height?: number;
   left?: number;
   top?: number;
+
+  htmlContent?: string;
+  url?: string;
 }
