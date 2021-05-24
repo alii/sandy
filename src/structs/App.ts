@@ -63,6 +63,8 @@ export class App extends (EventEmitter as { new (): TypedEventEmitter<WindowEven
       localDataDirectory: path.join(__dirname, ".data"),
       backgroundColor: "#ffffff",
       iconPath: "",
+      width: 400,
+      height: 400,
       ...options,
     };
 
@@ -92,6 +94,10 @@ export class App extends (EventEmitter as { new (): TypedEventEmitter<WindowEven
 
     const session = await browser.target().createCDPSession();
     const app = new App(browser, session);
+
+    const pages = await browser.pages();
+
+    pages[0].setViewport({ width: merged.width, height: merged.height });
 
     await app.init();
 

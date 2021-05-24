@@ -10,7 +10,9 @@ describe("sandy", () => {
 
   beforeAll(async () => {
     app = await App.launch({
-      //
+      url: "https://discord.com/app",
+      width: 700,
+      height: 400,
     });
   });
 

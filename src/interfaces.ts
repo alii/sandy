@@ -5,8 +5,8 @@ export interface AppConfig {
   iconPath: string;
   args: string[];
   title: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
   left?: number;
   top?: number;
 
