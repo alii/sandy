@@ -17,7 +17,7 @@ export class App extends (EventEmitter as { new (): TypedEventEmitter<WindowEven
   readonly session: CDPSession;
   readonly windows: Map<string, Window> = new Map();
 
-  constructor(browser: Browser, session: CDPSession) {
+  private constructor(browser: Browser, session: CDPSession) {
     super();
     this.browser = browser;
     this.session = session;

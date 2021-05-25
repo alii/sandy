@@ -11,15 +11,12 @@ describe("sandy", () => {
   beforeAll(async () => {
     app = await App.launch({
       url: "https://discord.com/app",
-      width: 700,
-      height: 400,
+      width: 1400,
+      height: 800,
     });
   });
 
-  afterAll(async () => {
-    await new Promise((r) => setTimeout(r, 10_000));
-    await app.close();
-  });
+  afterAll(async () => app.close());
 
   test("It creates a valid session", () => {
     expect(app.session).toBeTruthy();
